@@ -1,13 +1,19 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
+    <ListView></ListView>
   </div>
 </template>
 
 <script>
+// 導入組件
+import ListView from './components/List'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    // 註冊組件
+    ListView
+  }
 }
 </script>
 
