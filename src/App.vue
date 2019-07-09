@@ -2,7 +2,7 @@
   <div id="app">
     <HeaderView :msg="title"></HeaderView>
     <img src="./assets/logo.png">
-    <ListView></ListView>
+    <ListView @myMsg="getData"></ListView>
   </div>
 </template>
 
@@ -21,6 +21,11 @@ export default {
   data () {
     return {
       title: 'Vue入門學習'
+    }
+  },
+  methods: {
+    getData (msg) {
+      console.log('App.Vue', msg)
     }
   }
 }

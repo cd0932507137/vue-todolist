@@ -38,6 +38,9 @@ export default {
         text: this.newStr,
         isFinished: false
       })
+      // 將輸入框輸入 傳遞給父組件 App
+      // 觸發myMsg事件,並且傳遞參數
+      this.$emit('myMsg', this.newStr)
       // 清空輸入框
       this.newStr = ''
     }
