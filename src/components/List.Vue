@@ -1,8 +1,9 @@
 <template>
   <div class="view">
     <h1 class="title">{{ title }}</h1>
+    <input v-model="newStr" @keyup.enter="addData">
     <ul>
-      <li v-for="item in items" :key="item.text" v-bind:class="{finish: item.isFinished}">
+      <li v-for="item in items" :key="item.text" v-bind:class="{finish:item.isFinished}" @click="toggleFinish(item)">
         {{ item.text }}
       </li>
     </ul>
@@ -23,7 +24,22 @@ export default {
           text: '明天洗衣服',
           isFinished: true
         }
-      ]
+      ],
+      newStr: ''
+    }
+  },
+  methods: {
+    toggleFinish: function (item) {
+      console.log(item)
+      item.isFinished = !item.isFinished
+    },
+    addData: function () {
+      this.items.push({
+        text: this.newStr,
+        isFinished: false
+      })
+      // 清空輸入框
+      this.newStr = ''
     }
   }
 }
